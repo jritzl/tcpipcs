@@ -142,9 +142,18 @@ namespace server
 
 
                     byte[] data3 = Encoding.ASCII.GetBytes("sent\n"); // giving feedback to client
+                    byte[] data33 = Encoding.ASCII.GetBytes("will sent when s/he is online \n"); // giving feedback to client
                     try
                     {
-                        current.Send(data3);
+                        if (connection_status[target])
+                        {
+                            current.Send(data3);
+                        }
+                        else
+                        {
+                            current.Send(data33);
+                        }
+                            
                     }
                     catch (SocketException)
                     {
