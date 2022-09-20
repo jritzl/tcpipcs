@@ -139,15 +139,12 @@ public class SocketClient
     {
 
         ConnectToServer();
-        /* These three lines for just to see what is local port of client (just curious)
-        string[] one = _clientSocket.LocalEndPoint.ToString().Split(':');
-        int my_PORT = Int32.Parse(one[one.Length - 1]);
-        Console.WriteLine(my_PORT);*/
-
+      
         string msg1 = "0:" + id; // this is a hello msg to server to create a new client in server.
         
-        Console.WriteLine(@"<Type ""exit"" to properly disconnect client>");
         SendString(msg1);
+        
+        Console.WriteLine(@"<Type ""exit"" to properly disconnect client>");
         msgLoop();
         Exit();
     }
